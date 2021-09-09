@@ -14,6 +14,9 @@ jobs:
   linux-static:
     runs-on: ubuntu-latest
     steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+        
       - name: get graal
         run: |
           chmod u+x scripts/get-graal && scripts/get-graal
@@ -35,10 +38,6 @@ jobs:
           sudo apt-get -y install curl unzip gcc g++ build-essential zlib1g-dev libsnappy-dev
           sudo -E script/setup-musl
         shell: bash
-        
-      - name: Checkout
-        uses: actions/checkout@v2
-
 
       - name: compile
         run: chmod u+x scripts/compile && scripts/compile
