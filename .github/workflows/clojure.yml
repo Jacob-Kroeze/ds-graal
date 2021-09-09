@@ -28,15 +28,14 @@ jobs:
           chmod u+x scripts/activate-graal && scripts/activate-graal
         shell: bash
         
-      - name: Install clojure
-        run: chmod u+x script/install-clojure && script/install-clojure
+      - name: install clojure
+        run: chmod u+x scripts/install-clojure && scripts/install-clojure
         shell: bash
 
-      - name: Install native dev tools
+      - name: install native dev tools
         run: |
           sudo apt-get update
           sudo apt-get -y install curl unzip gcc g++ build-essential zlib1g-dev libsnappy-dev
-          sudo -E script/setup-musl
         shell: bash
 
       - name: compile
